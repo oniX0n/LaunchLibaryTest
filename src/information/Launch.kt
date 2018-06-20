@@ -17,13 +17,13 @@ class Launch constructor(id : Int) {
 
     private val name = jsonMasterObject.getString("name")
     private val id = jsonMasterObject.getInt("id")
-    private val launchTime: Date = DateAndTime.stringToDateyyyyMMddTHHmmssZ(jsonMasterObject.getString("isonet"))
+    private val launchTime: Calendar = DateAndTime.stringToCalendaryyyyMMddTHHmmssZ(jsonMasterObject.getString("isonet"))
 
     fun getName(): String {
         return name
     }
 
-    fun getLaunchTime(): Date {
+    fun getLaunchTime(): Calendar {
         return launchTime
     }
 
