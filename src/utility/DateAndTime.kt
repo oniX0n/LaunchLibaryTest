@@ -10,7 +10,7 @@ class DateAndTime {
             dateString = dateString.replace("Z", "")
 
             val format = SimpleDateFormat("yyyyMMddHHmmss")
-            format.timeZone = TimeZone.getTimeZone("Europe/Amsterdam")
+            format.timeZone = TimeZone.getTimeZone("Europe/Amsterdam") //TODO: Get the timezones right
             return format.parse(dateString)
         }
     }
