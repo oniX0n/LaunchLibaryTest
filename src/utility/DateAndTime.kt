@@ -10,11 +10,8 @@ class DateAndTime {
             dateString = dateString.replace("Z", "")
 
             val format = SimpleDateFormat("yyyyMMddHHmmss")
-            val calendar = Calendar.getInstance()
+            val calendar = GregorianCalendar(Locale.ENGLISH)
             calendar.time = format.parse(dateString)
-
-            val timeZoneBerlin = TimeZone.getTimeZone("Europe/Berlin")
-            calendar.timeZone = timeZoneBerlin
             return calendar
         }
     }
