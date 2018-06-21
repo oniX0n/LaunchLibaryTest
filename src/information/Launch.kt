@@ -2,8 +2,7 @@ package information
 
 import jsonUtility.JsonFromUrl
 import org.json.JSONObject
-import utility.DateAndTime
-import java.util.*
+
 
 class Launch constructor(id : Int) {
 
@@ -17,14 +16,9 @@ class Launch constructor(id : Int) {
 
     private val name = jsonMasterObject.getString("name")
     private val id = jsonMasterObject.getInt("id")
-    private val launchTime: Calendar = DateAndTime.stringToCalendaryyyyMMddTHHmmssZ(jsonMasterObject.getString("isonet"))
 
     fun getName(): String {
         return name
-    }
-
-    fun getLaunchTime(): Calendar {
-        return launchTime
     }
 
     fun getId(): Int {
