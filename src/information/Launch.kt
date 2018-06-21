@@ -21,9 +21,24 @@ class Launch constructor(id : Int) {
     private val timeNet: Instant = Instant.ofEpochSecond(
             jsonMasterObject.getInt("netstamp").toLong()
     )
+    private val timeWindowStart: Instant = Instant.ofEpochSecond(
+            jsonMasterObject.getInt("wsstamp").toLong()
+    )
+    private val timeWindowsEnd: Instant = Instant.ofEpochSecond(
+            jsonMasterObject.getInt("westamp").toLong()
+    )
+
 
     fun getTimeNet(): Instant {
         return timeNet
+    }
+
+    fun getTimeWindowStart(): Instant {
+        return  timeWindowStart
+    }
+
+    fun getTimeWindowEnd(): Instant {
+        return timeWindowsEnd
     }
 
     fun getName(): String {
