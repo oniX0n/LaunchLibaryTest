@@ -43,6 +43,18 @@ class Launch constructor(id : Int) {
         private fun duration(): Duration{
             return Duration.between(Instant.now(), launchInstant)
         }
+
+        fun hours(): Int {
+            return duration().toHours().toInt()
+        }
+
+        fun minutes(): Int {
+            return (duration().toMinutes() - duration().toHours() * 60).toInt()
+        }
+
+        fun seconds(): Int {
+            return (duration().seconds - duration().toMinutes() * 60).toInt()
+        }
     }
 }
 
