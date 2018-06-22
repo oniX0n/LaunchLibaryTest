@@ -2,6 +2,8 @@ package information
 
 import jsonUtility.JsonFromUrl
 import org.json.JSONObject
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.time.Duration
 import java.time.Instant
 
@@ -54,6 +56,14 @@ class Launch constructor(id : Int) {
 
         fun seconds(): Int {
             return (duration().seconds - duration().toMinutes() * 60).toInt()
+        }
+
+        fun string(): String {
+            val formatter: NumberFormat = DecimalFormat("00")
+            val returnHours = formatter.format(hours())
+            val returnMinutes = formatter.format(minutes())
+            val returnSeconds = formatter.format(seconds())
+            return ("$returnHours : $returnMinutes : $returnSeconds")
         }
     }
 }
