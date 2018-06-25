@@ -46,8 +46,12 @@ class Launch constructor(id : Int) {
             return Duration.between(Instant.now(), launchInstant)
         }
 
+        fun days(): Int {
+            return duration().toDays().toInt()
+        }
+
         fun hours(): Int {
-            return duration().toHours().toInt()
+            return (duration().toHours() - duration().toDays() * 24).toInt()
         }
 
         fun minutes(): Int {
@@ -60,10 +64,11 @@ class Launch constructor(id : Int) {
 
         fun string(): String {
             val formatter: NumberFormat = DecimalFormat("00")
+            val returnDays = formatter.format(days())
             val returnHours = formatter.format(hours())
             val returnMinutes = formatter.format(minutes())
             val returnSeconds = formatter.format(seconds())
-            return ("$returnHours : $returnMinutes : $returnSeconds")
+            return ("$returnDays : $returnHours : $returnMinutes : $returnSeconds")
         }
     }
 }
