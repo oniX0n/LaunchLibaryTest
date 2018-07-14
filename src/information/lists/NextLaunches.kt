@@ -5,7 +5,7 @@ import jsonUtility.JsonFromUrl
 import org.json.JSONObject
 
 class NextLaunches constructor(number: Int){
-    private val launchArray: Array<Launch>
+    val launchArray: Array<Launch>
 
     init {
         val jsonSourceObject = JsonFromUrl.jsonObjectFromUrl("https://launchlibrary.net/1.4/launch/next/$number")
