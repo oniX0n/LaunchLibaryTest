@@ -18,4 +18,13 @@ class NextLaunches constructor(number: Int){
             i -> Launch(idArray[i])
         })
     }
+
+    fun completeString(): String{
+        var returnString = ""
+        for (i in 0 until launchArray.size){
+            returnString += "${i + 1} - ${launchArray[i].name} -- ${launchArray[i].timeNet}"
+            returnString += "\n"
+        }
+        return returnString
+    }
 }
